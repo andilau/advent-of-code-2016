@@ -1,39 +1,25 @@
 package days
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Nested
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 
 @DisplayName("Day 1")
 class Day1Test {
-    val ints = listOf(1, 2, 3)
 
     @Nested
     @DisplayName("Part 1")
     inner class Part1 {
-        @Test
-        fun shouldReturnSumOfEmptyList() {
-            assertThat(Day1(emptyList()).partOne()).isEqualTo(0)
-        }
-
-        @Test
-        fun shouldReturnSumOfSimpleList() {
-            assertThat(Day1(ints).partOne()).isEqualTo(6)
-        }
-    }
-
-    @Nested
-    @DisplayName("Part 2")
-    inner class Part2 {
-        @Test
-        fun shouldReturnProductOfEmptyList() {
-            assertThat(Day1(emptyList()).partTwo()).isEqualTo(1)
-        }
-
-        @Test
-        fun shouldReturnProductOfSimpleList() {
-            assertThat(Day1(ints).partTwo()).isEqualTo(6)
+        @TestFactory
+        @DisplayName("Test")
+        fun shouldArriveAtFloor() = listOf(
+            "" to 0,
+            "R2, L3" to 5,
+            "R2, R2, R2" to 2,
+            "R5, L5, R5, R3" to 12,
+        ).map { (instructions, distance) ->
+            DynamicTest.dynamicTest("""Example $instructions should arrive at floor $distance" """) {
+                assertThat(Day1(instructions).partOne()).isEqualTo(distance)
+            }
         }
     }
 }
