@@ -22,4 +22,19 @@ class Day1Test {
             }
         }
     }
+
+    // R8, R4, R4, R8
+    @Nested
+    @DisplayName("Part 2")
+    inner class Part2 {
+        @TestFactory
+        @DisplayName("Test")
+        fun shouldArriveAtFloor() = listOf(
+            "R8, R4, R4, R8" to 4,
+        ).map { (instructions, distance) ->
+            DynamicTest.dynamicTest("""Example $instructions should arrive at floor $distance" """) {
+                assertThat(Day1(instructions).partTwo()).isEqualTo(distance)
+            }
+        }
+    }
 }
