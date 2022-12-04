@@ -12,7 +12,7 @@ class Day1(input: String) : Puzzle {
 
     private val instructions = input
         .split(", ")
-        .filter { s -> s.length >= 2 }
+        //.filter { s -> s.length >= 2 }
         .map(Instruction::from)
 
     override fun partOne(): Int = instructions.walk().last().manhattanDistance
