@@ -6,6 +6,8 @@ by [Eric Wastl](http://was.tl/).
 
 ## Solutions
 
+- Day 1: [No Time for a Taxicab](https://adventofcode.com/2016/day/1)  -- [Day1.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day1.kt)
+
 ### Features
 
 * Gradle setup so you can run a specific day or all days on the command line (see **Running**)
