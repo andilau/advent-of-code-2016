@@ -17,7 +17,7 @@ class Day1(input: String) : Puzzle {
 
     override fun partOne(): Int = instructions.walk().last().manhattanDistance
 
-    override fun partTwo():Int {
+    override fun partTwo(): Int {
         val visited = mutableSetOf<Point>()
 
         for (point in instructions.walk()) {
@@ -33,7 +33,7 @@ class Day1(input: String) : Puzzle {
         var dir = NORTH
         this@walk.forEach() { instruction ->
             dir = dir.turn(instruction.turn)
-            for (i in 1..instruction.steps) {
+            (1..instruction.steps).forEach { _ ->
                 pos = pos.move(dir)
                 yield(pos)
             }
@@ -55,7 +55,7 @@ class Day1(input: String) : Puzzle {
         }
     }
 
-    data class Instruction(val turn: Char = '_', val steps: Int = 0) {
+    data class Instruction(val turn: Char, val steps: Int) {
         companion object {
             fun from(text: String): Instruction =
                 Instruction(text.first(), text.substring(1).toInt())
