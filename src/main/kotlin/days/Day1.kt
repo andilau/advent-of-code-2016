@@ -12,7 +12,6 @@ class Day1(input: String) : Puzzle {
 
     private val instructions = input
         .split(", ")
-        //.filter { s -> s.length >= 2 }
         .map(Instruction::from)
 
     override fun partOne(): Int = instructions.walk().last().manhattanDistance
@@ -28,7 +27,7 @@ class Day1(input: String) : Puzzle {
         error("Invalid Input")
     }
 
-    private fun List<Instruction>.walk() = sequence<Point> {
+    private fun List<Instruction>.walk() = sequence {
         var pos = Point.ORIGIN
         var dir = NORTH
         this@walk.forEach() { instruction ->
