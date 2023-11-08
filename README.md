@@ -9,6 +9,7 @@ by [Eric Wastl](http://was.tl/).
 - Day 1: 🚕 [No Time for a Taxicab](https://adventofcode.com/2016/day/1) -- [Day1.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day1.kt)
 - Day 2: 🚾 [Bathroom Security](https://adventofcode.com/2016/day/2) -- [Day2.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day2.kt)
 - Day 3: 🔺 [Squares With Three Sides](https://adventofcode.com/2016/day/3) -- [Day3.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day3.kt)
+- Day 4: 🔺 [Security Through Obscurity](https://adventofcode.com/2016/day/4) -- [Day3.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day4.kt)
 
 ### Features
 
