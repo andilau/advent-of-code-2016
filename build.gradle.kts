@@ -26,9 +26,12 @@ dependencies {
     testImplementation("org.assertj:assertj-core:3.24.2")
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 tasks {
     withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
         kotlinOptions.freeCompilerArgs = listOf("-Xjsr305=strict")
     }
     test {
