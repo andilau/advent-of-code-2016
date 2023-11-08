@@ -1,31 +1,34 @@
 package days
 
-import days.Day2.Point.Companion.DOWN
-import days.Day2.Point.Companion.LEFT
-import days.Day2.Point.Companion.RIGHT
-import days.Day2.Point.Companion.UP
-import java.lang.IllegalArgumentException
-
 @AdventOfCodePuzzle(
         name = "Squares With Three Sides",
         url = "https://adventofcode.com/2016/day/3",
         date = Date(day = 3, year = 2016)
 )
-class Day3(private val triagles: List<String>) : Puzzle {
+class Day3(input: List<String>) : Puzzle {
 
-    override fun partOne(): Int = triagles.mapNotNull { Triangle.of(it) }.count { it.possible() }
+    private val triangles: List<Triangle> = input.mapNotNull { Triangle.from(it) }
+    override fun partOne(): Int = triangles.count { it.possible }
 
-    override fun partTwo(): Int = 0
+    override fun partTwo(): Int = triangles
+            .windowed(3,3,false)
+            .flatMap { threeTriangles -> listOf(
+                    Triangle(listOf(threeTriangles[0].sides[0], threeTriangles[1].sides[0], threeTriangles[2].sides[0])),
+                    Triangle(listOf(threeTriangles[0].sides[1], threeTriangles[1].sides[1], threeTriangles[2].sides[1])),
+                    Triangle(listOf(threeTriangles[0].sides[2], threeTriangles[1].sides[2], threeTriangles[2].sides[2])),
+            ) }
+            .count { it.possible }
 
     data class Triangle(val sides: List<Int>) {
-        fun possible(): Boolean {
-            return sides.sorted().also{print(it)}.let { it[0] + it[1] > it[2] }.also { println(it) }
-        }
+        val possible: Boolean
+            get() {
+                return sides.sorted().let { it[0] + it[1] > it[2] }
+            }
 
         companion object {
-            fun of(layout: String): Triangle? {
+            fun from(layout: String): Triangle? {
                 return layout.split(' ')
-                        .filter { it.isNotBlank()}
+                        .filter { it.isNotBlank() }
                         .map { it.toInt() }
                         .let { if (it.size == 3) Triangle(it) else null }
             }
