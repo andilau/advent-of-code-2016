@@ -1,6 +1,4 @@
 import days.Day1
-import days.Day2
-import days.Day3
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.DynamicTest

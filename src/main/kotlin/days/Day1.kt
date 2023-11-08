@@ -39,6 +39,36 @@ class Day1(input: String) : Puzzle {
             }
         }
     }
+class Day1(input: String) : Puzzle {
+
+    private val instructions = input
+        .split(", ")
+        .map(Instruction::from)
+
+    override fun partOne(): Int = instructions.walk().last().manhattanDistance
+
+    override fun partTwo(): Int {
+        val visited = mutableSetOf<Point>()
+
+        for (point in instructions.walk()) {
+            if (point in visited)
+                return point.manhattanDistance
+            visited += point
+        }
+        error("Invalid Input")
+    }
+
+    private fun List<Instruction>.walk() = sequence {
+        var pos = Point.ORIGIN
+        var dir = NORTH
+        this@walk.forEach() { instruction ->
+            dir = dir.turn(instruction.turn)
+            (1..instruction.steps).forEach { _ ->
+                pos = pos.move(dir)
+                yield(pos)
+            }
+        }
+    }
 
     data class Point(val x: Int, val y: Int) {
         fun move(facing: Direction): Point = when (facing) {
