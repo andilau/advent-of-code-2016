@@ -10,7 +10,7 @@ class Day2Test {
         ULL
         RRDDD
         LURDL
-        UUUUD""".lines()
+        UUUUD""".trimIndent().lines().filter { line-> line.isNotEmpty() }.toList()
 
     @Nested
     @DisplayName("Part 1")

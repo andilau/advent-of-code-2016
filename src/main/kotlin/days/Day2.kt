@@ -1,6 +1,10 @@
 package days
 
-import days.Day2.Point.Companion.ORIGIN
+import days.Day2.Point.Companion.DOWN
+import days.Day2.Point.Companion.LEFT
+import days.Day2.Point.Companion.RIGHT
+import days.Day2.Point.Companion.UP
+import java.lang.IllegalArgumentException
 
 @AdventOfCodePuzzle(
     name = "Bathroom Security",
@@ -9,38 +13,72 @@ import days.Day2.Point.Companion.ORIGIN
 )
 class Day2(private val input: List<String>) : Puzzle {
 
-    override fun partOne(): String = input.fold(Pair("", ORIGIN)) { (code, pos), line ->
-         line.fold(pos) { p, c -> p.move(c) }
-             .run { Pair(code + this.keyPad.digitToInt(), this) }
-    }.first
+    private val keypadOne = """
+        123
+        456
+        789""".trimIndent().lines().let { Keypad.of(it) }
 
-    override fun partTwo(): String = "5DB3"
+    private val keypadTwo = """
+        |  1
+        | 234
+        |56789
+        | ABC
+        |  D""".trimMargin().lines().let { Keypad.of(it) }
 
-    private val Point.keyPad: Char
-        get() = when (this) {
-            Point(-1, -1) -> '1'
-            Point(0, -1) -> '2'
-            Point(1, -1) -> '3'
-            Point(-1, 0) -> '4'
-            Point(0, 0) -> '5'
-            Point(1, 0) -> '6'
-            Point(-1, 1) -> '7'
-            Point(0, 1) -> '8'
-            Point(1, 1) -> '9'
-            else -> error("Not on keypad: $this")
-        }
+    override fun partOne(): String = solve(keypadOne)
+
+    override fun partTwo(): String = solve(keypadTwo)
+
+    private fun solve(keypad: Keypad): String {
+        val start = keypad.find('5')
+
+        return input.fold("" to start) { (code, key), line ->
+            line.fold(key) { position, instruction ->
+                when (instruction) {
+                    'L' -> keypad.left(position)
+                    'R' -> keypad.right(position)
+                    'U' -> keypad.up(position)
+                    'D' -> keypad.down(position)
+                    else -> throw IllegalArgumentException("Unknown instruction: $instruction")
+                }
+            }.let { Pair(code + it.c, it) }
+        }.first
+    }
+
+    data class Key(val c: Char, val pos: Point)
 
     data class Point(val x: Int, val y: Int) {
-        fun move(dir: Char): Point = when (dir) {
-            'L' -> if (x >= 0) copy(x = x - 1) else this
-            'R' -> if (x <= 0) copy(x = x + 1) else this
-            'U' -> if (y >= 0) copy(y = y - 1) else this
-            'D' -> if (y <= 0) copy(y = y + 1) else this
-            else -> error("Check input, unknown direction: $dir")
+        companion object {
+            val LEFT = Point(-1, 0)
+            val RIGHT = Point(1, 0)
+            val UP = Point(0, -1)
+            val DOWN = Point(0, 1)
+        }
+    }
+
+    data class Keypad(val keys: List<Key>) {
+        private val byCharacter = keys.associateBy { it.c }
+        private val byPosition = keys.associateBy { it.pos }
+
+        fun left(key: Key): Key = find(key, LEFT)
+        fun right(key: Key): Key = find(key, RIGHT)
+        fun up(key: Key): Key = find(key, UP)
+        fun down(key: Key): Key = find(key, DOWN)
+
+        private fun find(key: Key, delta: Point): Key {
+            val next = Point(key.pos.x + delta.x, key.pos.y + delta.y)
+            return byPosition[next] ?: key
         }
 
+        fun find(char: Char): Key = byCharacter[char] ?: throw IllegalArgumentException("Char $char not found in layout")
+
         companion object {
-            val ORIGIN = Point(0, 0)
+            fun of(layout: List<String>): Keypad {
+                val keys: List<Key> = layout.flatMapIndexed { y, line ->
+                    line.mapIndexedNotNull { x, char -> if (char.isWhitespace()) null else Key(char, Point(x, y)) }
+                }.toList()
+                return Keypad(keys)
+            }
         }
     }
 }
