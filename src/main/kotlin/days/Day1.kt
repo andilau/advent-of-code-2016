@@ -12,37 +12,6 @@ class Day1(input: String) : Puzzle {
 
     private val instructions = input
         .split(", ")
-        //.filter { s -> s.length >= 2 }
-        .map(Instruction::from)
-
-    override fun partOne(): Int = instructions.walk().last().manhattanDistance
-
-    override fun partTwo(): Int {
-        val visited = mutableSetOf<Point>()
-
-        for (point in instructions.walk()) {
-            if (point in visited)
-                return point.manhattanDistance
-            visited += point
-        }
-        error("Invalid Input")
-    }
-
-    private fun List<Instruction>.walk() = sequence<Point> {
-        var pos = Point.ORIGIN
-        var dir = NORTH
-        this@walk.forEach() { instruction ->
-            dir = dir.turn(instruction.turn)
-            (1..instruction.steps).forEach { _ ->
-                pos = pos.move(dir)
-                yield(pos)
-            }
-        }
-    }
-class Day1(input: String) : Puzzle {
-
-    private val instructions = input
-        .split(", ")
         .map(Instruction::from)
 
     override fun partOne(): Int = instructions.walk().last().manhattanDistance
