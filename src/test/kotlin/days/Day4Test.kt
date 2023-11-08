@@ -17,7 +17,7 @@ class Day4Test {
     @DisplayName("Part 1")
     inner class Part1 {
         @Test
-        fun `How far is the shortest path to the destination`() {
+        fun `What is the sum of the sector IDs of the real rooms`() {
             assertThat(Day4(input).partOne()).isEqualTo(1514)
         }
     }
@@ -26,7 +26,8 @@ class Day4Test {
     @DisplayName("Part 2")
     inner class Part2 {
         @Test
-        fun `How far is the shortest path to the destination`() {
+        fun `What is the sector ID of the room where North Pole objects are stored`() {
             assertThat(Day4(listOf("qzmt-zixmtkozy-ivhz-343[]")).partTwo()).isEqualTo(0)
-        }    }
+        }
+    }
 }

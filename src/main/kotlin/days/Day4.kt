@@ -19,17 +19,21 @@ class Day4(val input: List<String>) : Puzzle {
                     .firstOrNull { it.decrypt() == "northpole object storage" }?.sectorId ?: throw IllegalArgumentException()
 
     data class Room(val nameEncrypted: List<String>, val sectorId: Int, val checksum: String) {
-        fun isReal(): Boolean {
-            val letterByCount: Map<Char, Int> = nameEncrypted.flatMap { it.asIterable() }.groupBy { it }.mapValues { it.value.size }
-            val mapValues: Map<Int, List<Char>> = letterByCount.toList().groupBy { entry -> entry.second }.mapValues { entry -> entry.value.map { it.first } }
-                    .toSortedMap(Comparator.comparing<Int?, Int?> { it }.reversed()).mapValues { it.value.sorted() }
-            val checksum = mapValues.values.joinToString("") { it.joinToString("") }.substring(0..4)
-            return checksum == this.checksum
-        }
 
         fun decrypt(): String {
             return nameEncrypted.joinToString("-")
                     .let { ShiftCipher(sectorId).encode(it) }
+        }
+
+        fun isReal(): Boolean {
+            return checksum() == checksum
+        }
+
+        private fun checksum(): String {
+            val letterByCount: Map<Char, Int> = nameEncrypted.flatMap { it.asIterable() }.groupingBy { it }.eachCount()
+            val letterCountSorted: List<Pair<Char, Int>> = letterByCount.toList()
+                    .sortedWith(Comparator.comparing<Pair<Char, Int>?, Int?> { it.second }.reversed().thenComparing(Comparator.comparing { it.first }))
+            return letterCountSorted.map { it.first }.take(5).joinToString("")
         }
 
         companion object {
