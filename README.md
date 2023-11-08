@@ -7,13 +7,15 @@ by [Eric Wastl](http://was.tl/).
 ## Solutions
 
 - Day 1: 🚕 [No Time for a Taxicab](https://adventofcode.com/2016/day/1) -- [Day1.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day1.kt)
+- Day 2: 🚾 [Bathroom Security](https://adventofcode.com/2016/day/2) -- [Day2.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day2.kt)
+- Day 3: 🔺 [Squares With Three Sides](https://adventofcode.com/2016/day/3) -- [Day3.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day3.kt)
 
 ### Features
 
 * Gradle setup so you can run a specific day or all days on the command line (see **Running**)
 * Timings for each part of each day
 * Input for each day automatically exposed in String and List form
-* [Junit 5](https://junit.org/junit5/) and [AssertJ](https://assertj.github.io/doc/) test libraries included (see **Testing**)
+* [JUnit 5](https://junit.org/junit5/) and [AssertJ](https://assertj.github.io/doc/) test libraries included (see **Testing**)
 * Starter .gitignore
 
 ### Running
