@@ -14,7 +14,7 @@ by [Eric Wastl](http://was.tl/).
 * Gradle setup so you can run a specific day or all days on the command line (see **Running**)
 * Timings for each part of each day
 * Input for each day automatically exposed in String and List form
-* [Junit 5](https://junit.org/junit5/) and [AssertJ](https://assertj.github.io/doc/) test libraries included (see **Testing**)
+* [JUnit 5](https://junit.org/junit5/) and [AssertJ](https://assertj.github.io/doc/) test libraries included (see **Testing**)
 * Starter .gitignore
 
 ### Running
