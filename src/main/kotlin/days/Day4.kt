@@ -16,7 +16,8 @@ class Day4(private val input: List<String>) : Puzzle {
     override fun partTwo(): Int =
             input.map { Room.of(it) }
                     .filter { it.isReal() }
-                    .firstOrNull { it.decrypt() == "northpole object storage" }?.sectorId ?: throw IllegalArgumentException()
+                    .firstOrNull { it.decrypt() == "northpole object storage" }?.sectorId
+                    ?: throw IllegalArgumentException()
 
     data class Room(val nameEncrypted: List<String>, val sectorId: Int, val checksum: String) {
 

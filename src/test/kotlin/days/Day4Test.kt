@@ -2,6 +2,7 @@ package days
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.*
+import java.lang.IllegalArgumentException
 
 @DisplayName("Day 4")
 class Day4Test {
@@ -27,7 +28,7 @@ class Day4Test {
     inner class Part2 {
         @Test
         fun `What is the sector ID of the room where North Pole objects are stored`() {
-            assertThat(Day4(listOf("qzmt-zixmtkozy-ivhz-343[]")).partTwo()).isEqualTo(0)
+            assertThrows<IllegalArgumentException> { Day4(listOf("qzmt-zixmtkozy-ivhz-343[]")).partTwo() }
         }
     }
 }
