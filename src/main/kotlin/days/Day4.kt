@@ -7,7 +7,7 @@ import java.lang.IllegalArgumentException
         url = "https://adventofcode.com/2016/day/4",
         date = Date(day = 4, year = 2016)
 )
-class Day4(val input: List<String>) : Puzzle {
+class Day4(private val input: List<String>) : Puzzle {
     override fun partOne(): Int =
             input.map { Room.of(it) }
                     .filter { it.isReal() }
