@@ -13,6 +13,7 @@ class SolutionsTest {
         Day1(InputReader.getInputAsString(1)) to Pair(288, 111),
         Day2(InputReader.getInputAsList(2)) to Pair("53255", "7423A"),
         Day3(InputReader.getInputAsList(3)) to Pair(869, 1544),
+        Day4(InputReader.getInputAsList(4)) to Pair(185371, 984),
         Day6(InputReader.getInputAsList(6)) to Pair("wkbvmikb", "evakwaga"),
     )
         .map { (day, answers) ->
