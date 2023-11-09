@@ -27,7 +27,7 @@ class Day5(val doorId: String) : Puzzle {
                         .apply { if (get(pair.first).isWhitespace()) setCharAt(pair.first, pair.second) }
                         .toString()
             }
-            .first { it.all { !it.isWhitespace() } }
+            .first { it.none { it.isWhitespace() } }
 
     private fun String.md5(): String {
         val md = MessageDigest.getInstance("MD5")
