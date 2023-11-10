@@ -13,6 +13,7 @@ by [Eric Wastl](http://was.tl/).
 - Day 5: ♟️ [How About a Nice Game of Chess?](https://adventofcode.com/2016/day/5) -- [Day5.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day5.kt)
 - Day 6: 📣 [Signals and Noise](https://adventofcode.com/2016/day/6) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day6.kt)
 - Day 7: 💻 [Internet Protocol Version 7](https://adventofcode.com/2016/day/7) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day7.kt)
+- Day 8: 📟 [Two-Factor Authentication](https://adventofcode.com/2016/day/7) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day7.kt)
 
 ### Features
 
