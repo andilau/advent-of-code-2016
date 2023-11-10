@@ -6,18 +6,18 @@ import org.junit.jupiter.api.*
 @DisplayName("Day 7")
 class Day7Test {
 
-    val ips = """
+    @Nested
+    @DisplayName("Part 1")
+    inner class Part1 {
+
+        val ips = """
         abba[mnop]qrst
         abcd[bddb]xyyx
         aaaa[qwer]tyui
         ioxxoj[asdfgh]zxcvbn""".trimIndent().lines()
 
-    @Nested
-    @DisplayName("Part 1")
-    inner class Part1 {
-
         @Test
-        fun `what is the error-corrected version of the message being sent`() {
+        fun `How many IPs in your puzzle input support TLS`() {
             assertThat(Day7(ips).partOne()).isEqualTo(2)
         }
     }
@@ -26,9 +26,15 @@ class Day7Test {
     @DisplayName("Part 2")
     inner class Part2 {
 
+        val ips = """
+        aba[bab]xyz
+        xyx[xyx]xyx
+        aaa[kek]eke
+        zazbz[bzb]cdb""".trimIndent().lines()
+
         @Test
-        fun `Six of the listed triangles are possible`() {
-            assertThat(Day6(ips).partTwo()).isEqualTo("advent")
+        fun `How many IPs in your puzzle input support SSL`() {
+            assertThat(Day7(ips).partTwo()).isEqualTo(3)
         }
     }
 }
