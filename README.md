@@ -9,9 +9,10 @@ by [Eric Wastl](http://was.tl/).
 - Day 1: 🚕 [No Time for a Taxicab](https://adventofcode.com/2016/day/1) -- [Day1.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day1.kt)
 - Day 2: 🚾 [Bathroom Security](https://adventofcode.com/2016/day/2) -- [Day2.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day2.kt)
 - Day 3: 🔺 [Squares With Three Sides](https://adventofcode.com/2016/day/3) -- [Day3.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day3.kt)
-- Day 4: 🏪 [Security Through Obscurity](https://adventofcode.com/2016/day/4) -- [Day3.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day4.kt)
+- Day 4: 🏪 [Security Through Obscurity](https://adventofcode.com/2016/day/4) -- [Day4.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day4.kt)
 - Day 5: ♟️ [How About a Nice Game of Chess?](https://adventofcode.com/2016/day/5) -- [Day5.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day5.kt)
 - Day 6: 📣 [Signals and Noise](https://adventofcode.com/2016/day/6) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day6.kt)
+- Day 7: 💻 [Internet Protocol Version 7](https://adventofcode.com/2016/day/7) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day7.kt)
 
 ### Features
 
