@@ -11,7 +11,7 @@ by [Eric Wastl](http://was.tl/).
 - Day 3: 🔺 [Squares With Three Sides](https://adventofcode.com/2016/day/3) -- [Day3.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day3.kt)
 - Day 4: 🏪 [Security Through Obscurity](https://adventofcode.com/2016/day/4) -- [Day4.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day4.kt)
 - Day 6: 📣 [Signals and Noise](https://adventofcode.com/2016/day/6) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day6.kt)
-- Day 6: 💻 [Internet Protocol Version 7](https://adventofcode.com/2016/day/7) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day7.kt)
+- Day 7: 💻 [Internet Protocol Version 7](https://adventofcode.com/2016/day/7) -- [Day6.kt](https://github.com/andilau/advent-of-code-2016/blob/main/src/main/kotlin/days/Day7.kt)
 
 ### Features
 
