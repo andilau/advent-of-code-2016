@@ -34,7 +34,12 @@ tasks {
     withType<KotlinCompile> {
         kotlinOptions.freeCompilerArgs = listOf("-Xjsr305=strict")
     }
-    test {
-        useJUnitPlatform()
+}
+
+testing {
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useJUnitJupiter()
+        }
     }
 }
